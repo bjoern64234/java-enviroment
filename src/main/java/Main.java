@@ -1,4 +1,5 @@
 import enums.*;
+import lombok.LombokExercise;
 import streams.StreamExercise;
 
 import java.io.IOException;
@@ -11,6 +12,9 @@ public class Main {
         // EnumExercise.call();
 
         // Call stream exercise
-        StreamExercise.call();
+        //StreamExercise.call();
+
+        // Call lombok exercise
+        LombokExercise.call();
     }
 }
