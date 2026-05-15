@@ -35,8 +35,7 @@ public class LombokExercise {
                 .address("Sommerterassen")
                 .build();
 
-        Course course = Course.builder().id(UUID.randomUUID().toString()).name("Java Kurs").students(new ArrayList<>()).build();
-        course.setTeacher(t2);
+        Course course = Course.builder().id(UUID.randomUUID().toString()).name("Java Kurs").teacher(t1).students(new ArrayList<>()).build();
         course.addStudent(s1);
         course.addStudent(s2);
         course.addStudent(s4);
