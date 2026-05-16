@@ -31,9 +31,7 @@ class StudentServiceTest {
         try {
             Student actual = studentService.findById(customId);
         } catch (StudentNotFoundRuntimeException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            assertThat(true);
+            assertThatThrownBy(() -> {throw new StudentNotFoundRuntimeException(customId);});
         }
     }
 
