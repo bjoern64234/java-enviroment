@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.*;
 class StudentServiceTest {
 
     @Test
-    void findById_isEqualbyGivenStudent() {
+    void findById_isEqualByGivenStudent() {
         // Given
         StudentService studentService = new StudentService();
         Student newStudent = Student.builder()
