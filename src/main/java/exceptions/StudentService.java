@@ -15,4 +15,8 @@ public class StudentService {
     public List<Student> getAllStudents(){
         return repo.getAllStudents();
     }
+
+    public Student findById(String id) throws StudentNotFoundRuntimeException{
+        return repo.findStudentById(id).orElseThrow(() -> new StudentNotFoundRuntimeException(id));
+    }
 }
