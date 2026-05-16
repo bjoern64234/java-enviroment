@@ -1,6 +1,7 @@
 package lombok;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.UUID;
 
 public class LombokExercise {
@@ -10,7 +11,7 @@ public class LombokExercise {
         System.out.println();
 
         System.out.println("New student with lombok");
-        Student s1 = new Student(UUID.randomUUID().toString(), "Max", "Musterweg", "Dr.");
+        Student s1 = new Student(UUID.randomUUID().toString(), "Max", "Musterweg", 2);
         System.out.printf("%s %s lives in the street '%s'.", s1.getGrade(), s1.getName(), s1.getAddress());
         System.out.println();
 
@@ -23,22 +24,38 @@ public class LombokExercise {
                 .id(UUID.randomUUID().toString())
                 .name("Mario")
                 .address("Höfeweg")
+                .grade(3)
                 .build();
         Student s3 = Student.builder()
                 .id(UUID.randomUUID().toString())
                 .name("Karl")
                 .address("Musterweg")
+                .grade(2)
                 .build();
         Student s4 = Student.builder()
                 .id(UUID.randomUUID().toString())
                 .name("Lisa")
                 .address("Sommerterassen")
+                .grade(1)
+                .build();
+        Student s5 = Student.builder()
+                .id(UUID.randomUUID().toString())
+                .name("Lars")
+                .address("Mühlenweg")
+                .grade(4)
                 .build();
 
         Course course = Course.builder().id(UUID.randomUUID().toString()).name("Java Kurs").teacher(t1).students(new ArrayList<>()).build();
         course.addStudent(s1);
         course.addStudent(s2);
+        course.addStudent(s3);
         course.addStudent(s4);
+        course.addStudent(s5);
+        System.out.println();
+
+        System.out.println("Create university");
+        University university = new University(UUID.randomUUID().toString(), "TU Berlin", new ArrayList<>(Collections.singletonList(course)));
+        System.out.println(university.courses());
         System.out.println();
 
         System.out.println("Course teacher");
