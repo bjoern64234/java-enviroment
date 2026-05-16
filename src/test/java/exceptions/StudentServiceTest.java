@@ -28,11 +28,9 @@ class StudentServiceTest {
         StudentService studentService = new StudentService();
         String customId = UUID.randomUUID().toString();
         // When
-        try {
-            Student actual = studentService.findById(customId);
-        } catch (StudentNotFoundRuntimeException e) {
-            assertThatThrownBy(() -> {throw new StudentNotFoundRuntimeException(customId);});
-        }
+        assertThatThrownBy(() -> studentService.findById(customId))
+                .isInstanceOf(StudentNotFoundRuntimeException.class)
+                .hasMessageContaining(customId);
     }
 
     @Test
@@ -40,12 +38,7 @@ class StudentServiceTest {
         // Given
         StudentService studentService = new StudentService();
         // When
-        try {
-            Student actual = studentService.findById(null);
-        } catch (StudentNotFoundRuntimeException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            assertThat(true);
-        }
+        assertThatThrownBy(() -> studentService.findById(null))
+                .isInstanceOf(StudentNotFoundRuntimeException.class);
     }
 }
