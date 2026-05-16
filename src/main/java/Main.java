@@ -1,4 +1,5 @@
 import enums.*;
+import exceptions.ExceptionsExercise;
 import lombok.LombokExercise;
 import streams.StreamExercise;
 
@@ -15,6 +16,9 @@ public class Main {
         //StreamExercise.call();
 
         // Call lombok exercise
-        LombokExercise.call();
+        // LombokExercise.call();
+
+        // Call exception exercise
+        ExceptionsExercise.call();
     }
 }
