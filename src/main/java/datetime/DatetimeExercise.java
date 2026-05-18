@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.UUID;
 
 public class DatetimeExercise {
 
@@ -32,5 +33,11 @@ public class DatetimeExercise {
         LocalDate date2 = LocalDate.of(2001,5, 22);
         long diff = ChronoUnit.DAYS.between(date2, date1);
         System.out.println("The difference is: " + diff + " days.");
+        System.out.println();
+
+        System.out.println("Init animal instance an calculate days to birthday");
+        Animal animal = new Animal(UUID.randomUUID().toString(), "Dog", LocalDate.of(2024, 5, 10));
+        long dayToBirthday = ChronoUnit.DAYS.between(animal.birthday(), LocalDate.now()) % ChronoUnit.YEARS.getDuration().toDays();
+        System.out.println("In " + dayToBirthday + " days.");
     }
 }
