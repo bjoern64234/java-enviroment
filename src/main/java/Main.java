@@ -1,3 +1,4 @@
+import datetime.DatetimeExercise;
 import enums.*;
 import exceptions.ExceptionsExercise;
 import lombok.LombokExercise;
@@ -19,6 +20,9 @@ public class Main {
         // LombokExercise.call();
 
         // Call exception exercise
-        ExceptionsExercise.call();
+        //ExceptionsExercise.call();
+
+        // Call datetime exercise
+        DatetimeExercise.call();
     }
 }
