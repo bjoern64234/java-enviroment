@@ -1,7 +1,9 @@
 package datetime;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
@@ -35,9 +37,16 @@ public class DatetimeExercise {
         System.out.println("The difference is: " + diff + " days.");
         System.out.println();
 
-        System.out.println("Init animal instance an calculate days to birthday");
-        Animal animal = new Animal(UUID.randomUUID().toString(), "Dog", LocalDate.of(2024, 5, 10));
-        long dayToBirthday = ChronoUnit.DAYS.between(animal.birthday(), LocalDate.now()) % ChronoUnit.YEARS.getDuration().toDays();
-        System.out.println("In " + dayToBirthday + " days.");
+        System.out.println("Init animal instance and calculate days to birthday");
+        Animal animal = new Animal(UUID.randomUUID().toString(), "Dog", LocalDate.of(2000, 5, 20), Instant.now(), Instant.now());
+        LocalDate today = LocalDate.now();
+        LocalDate nextBirthday = animal.birthday().withYear(today.getYear());
+
+        if (!nextBirthday.isAfter(today)) {
+            nextBirthday = nextBirthday.plusYears(1);
+        }
+
+        long daysToBirthday = ChronoUnit.DAYS.between(today, nextBirthday);
+        System.out.println("In " + daysToBirthday + " days.");
     }
 }
